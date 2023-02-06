@@ -1,0 +1,13 @@
+_format_version: "2.1"
+
+services:
+  - name: icc-aria
+    url: https://icc-aria.ir/
+    routes:
+      - name: gists-route
+        methods:
+            - GET
+            - POST
+        paths:
+          - /icc-aria
+        strip_path: true
