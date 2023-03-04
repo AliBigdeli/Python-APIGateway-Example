@@ -67,11 +67,17 @@ services:
    image: pantsel/konga
    ports:
      - 1337:1337
-   links:
-     - kong:kong
+  #  links:
+  #    - kong:kong
    container_name: konga
    environment:
      - NODE_ENV=production
+     - DB_ADAPTER=postgres
+     - DB_HOST=kong-database
+     - DB_PORT=5432
+     - DB_USER=kong
+     - DB_PASSWORD=abcdefg123456
+     - DB_DATABASE=kong
    volumes:
      - "/etc/localtime:/etc/localtime:ro"
      - "/etc/timezone:/etc/timezone:ro"
