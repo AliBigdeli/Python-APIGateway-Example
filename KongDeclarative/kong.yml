@@ -1,13 +1,22 @@
 _format_version: "2.1"
 
 services:
-  - name: icc-aria
-    url: https://icc-aria.ir/
+  - name: service1
+    host: service1
+    port: 8000
+    path: /
     routes:
-      - name: gists-route
-        methods:
-            - GET
-            - POST
+      - name: service1-route
         paths:
-          - /icc-aria
+          - /service1
+        strip_path: true  # keep /service1 in upstream request
+
+  - name: service2
+    host: service2
+    port: 8000
+    path: /
+    routes:
+      - name: service2-route
+        paths:
+          - /service2
         strip_path: true
